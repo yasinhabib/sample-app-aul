@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('product_description');
             $table->string('product_img_path');
             $table->string('product_video_path');
-            $table->decimal('product_price');
+            $table->decimal('product_price')->nullable();
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ class FinanceController extends Controller
     public function update(Request $request){
         $product = Product::where('id',$request->id)->first();
         
-        $product->price = $request->price;
+        $product->product_price = $request->product_price;
         $result = $product->save();
 
         if($result){

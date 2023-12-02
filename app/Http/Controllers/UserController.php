@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,7 +27,7 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->role_id = $request->role_id;
         $result = $user->save();
 
@@ -51,7 +52,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         if($request->password){
-            $user->password = $request->password;
+            $user->password = Hash::make($request->password);
         }
         $user->role_id = $request->role_id;
         $result = $user->save();
