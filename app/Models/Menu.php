@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+
+    public function menuRole(){
+        return $this->hasOne(menuRole::class,'menu_id','id'); 
+    }
 }

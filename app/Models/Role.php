@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+    public function menuRole()
+    {
+        return $this->belongsTo(MenuRole::class,'role_id','id');
+    }
 }
